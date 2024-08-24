@@ -14,7 +14,14 @@ import {
     Transaction,
   } from '@solana/web3.js';
   
-  const headers = createActionHeaders();
+  // const headers = createActionHeaders();
+  
+  const headers = {
+    ...createActionHeaders(),
+    'Access-Control-Allow-Origin': '*', // Allow all origins
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS', // Allow specific methods
+    'Access-Control-Allow-Headers': 'Content-Type', // Allow specific headers
+  };
   
   export const GET = async (req: Request) => {
     try {
